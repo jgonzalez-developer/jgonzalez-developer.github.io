@@ -22,18 +22,13 @@
                 "network": "Twitter",
                 "username": "joni_iOSDev",
                 "url": "https://x.com/joni_iOSDev"
-            },
-            {
-                "network": "Instagram",
-                "username": "joni_iOSDev",
-                "url": "https://x.com/joni_iOSDev"
             }
         ]
     },
     "work": [
         {
-            "name": "Company",
-            "position": "President",
+            "name": "PhiBlock LLC",
+            "position": "iOS Engineer",
             "url": "https://company.com",
             "startDate": "2013-01-01",
             "endDate": "2014-01-01",
@@ -97,12 +92,13 @@
     ],
     "skills": [
         {
-            "name": "Web Development",
-            "level": "Master",
+            "name": "SwiftUI",
+            "level": "Advanced",
             "keywords": [
-                "HTML",
-                "CSS",
-                "JavaScript"
+                "Swift",
+                "CoreData",
+                "SwiftData",
+                "MVVM"
             ]
         }
     ],
