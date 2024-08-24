@@ -1,24 +1,32 @@
 {
+    "meta": {
+        "theme": "Professional"
+      },
     "basics": {
-        "name": "John Doe",
-        "label": "Programmer",
+        "name": "Jonatan Gonzalez",
+        "label": "iOS Developer",
         "image": "",
-        "email": "john@gmail.com",
-        "phone": "(912) 555-4321",
-        "url": "https://johndoe.com",
+        "email": "jonzalez_gonzalez@me.com",
+        "phone": "+54 (911) 3666-7289",
+        "url": "https://jgonzalez-developer.github.io",
         "summary": "A summary of John Doe…",
         "location": {
-            "address": "2712 Broadway St",
-            "postalCode": "CA 94115",
-            "city": "San Francisco",
-            "countryCode": "US",
-            "region": "California"
+            "address": "Humberto Primo 842",
+            "postalCode": "CP 1003",
+            "city": "San Telmo",
+            "countryCode": "ARG",
+            "region": "Buenos Aires"
         },
         "profiles": [
             {
                 "network": "Twitter",
-                "username": "john",
-                "url": "https://twitter.com/john"
+                "username": "joni_iOSDev",
+                "url": "https://x.com/joni_iOSDev"
+            },
+            {
+                "network": "Instagram",
+                "username": "joni_iOSDev",
+                "url": "https://x.com/joni_iOSDev"
             }
         ]
     },
