@@ -1,138 +1,155 @@
 {
-    "meta": {
-        "theme": "Professional"
-      },
     "basics": {
         "name": "Jonatan Gonzalez",
         "label": "iOS Developer",
-        "image": "",
-        "email": "jonzalez_gonzalez@me.com",
-        "phone": "+54 (911) 3666-7289",
-        "url": "https://jgonzalez-developer.github.io",
-        "summary": "I am iOS developer with four years of experience in Swift and Objective-C, with different career achievements. I have developed global apps, with good coding practices and promoting a positive team environment. I take initiative, and I am always looking for chances to suggest improvements and to help others to become better.",
+        "email": "jonatan_gonzalez@me.com",
+        "phone": "+54 911 3666 7289",
         "location": {
-            "address": "Humberto Primo 842",
-            "postalCode": "CP 1003",
-            "city": "San Telmo",
-            "countryCode": "ARG",
-            "region": "Buenos Aires"
+            "city": "Buenos Aires",
+            "countryCode": "AR"
         },
         "profiles": [
             {
-                "network": "Twitter",
-                "username": "joni_iOSDev",
-                "url": "https://x.com/joni_iOSDev"
+                "network": "LinkedIn",
+                "username": "joni-iosdev",
+                "url": "https://www.linkedin.com/in/joni-iosdev"
             }
-        ]
+        ],
+        "summary": "iOS developer with four years of experience in Swift and Objective-C, focused on creating global apps, following good coding practices, and fostering a positive team environment."
     },
     "work": [
         {
-            "name": "PhiBlock LLC",
+            "company": "PhiBlock LLC",
             "position": "iOS Engineer",
-            "url": "https://company.com",
-            "startDate": "2013-01-01",
-            "endDate": "2014-01-01",
-            "summary": "Description…",
+            "startDate": "2023-09",
+            "summary": "Building a server-driven UI framework focused on dynamic user interfaces using best practices.",
             "highlights": [
-                "Started the company"
+                "Applied best practices for building server-driven UI."
             ]
-        }
-    ],
-    "volunteer": [
+        },
         {
-            "organization": "Organization",
-            "position": "Volunteer",
-            "url": "https://organization.com/",
-            "startDate": "2012-01-01",
-            "endDate": "2013-01-01",
-            "summary": "Description…",
+            "company": "Empowerment Labs",
+            "position": "iOS Developer",
+            "startDate": "2022-11",
+            "endDate": "2023-09",
+            "summary": "Worked with Swift, applying design patterns, SOLID principles, and Clean Architecture. Developed SDUI (Server-Driven User Interface) module.",
             "highlights": [
-                "Awarded 'Volunteer of the Month'"
+                "Resolved bugs and implemented new features.",
+                "Created an SDUI module."
+            ]
+        },
+        {
+            "company": "MercadoLibre Argentina",
+            "position": "iOS Developer",
+            "startDate": "2021-03",
+            "endDate": "2022-11",
+            "summary": "Worked on the checkout team with Swift and Objective-C, applying MVC, MVP, and SOLID principles. Managed releases and bugs, delivering weekly updates.",
+            "highlights": [
+                "Served as release and bug manager.",
+                "Developed new features and solved complex issues."
+            ]
+        },
+        {
+            "company": "Flux IT - Galicia Bank",
+            "position": "iOS Developer",
+            "startDate": "2020-04",
+            "endDate": "2021-02",
+            "summary": "Developed new features using Swift and collaborated in code reviews and Scrum meetings. Worked with the testing team for successful feature integration.",
+            "highlights": [
+                "Added new features for both clients and enterprises app.",
+                "Collaborated in Scrum and code review processes."
+            ]
+        },
+        {
+            "company": "KwikVet",
+            "position": "iOS Developer",
+            "startDate": "2019-07",
+            "endDate": "2020-11",
+            "summary": "Implemented new features such as navigation and geolocation, and improved the payment process with Braintree SDK.",
+            "highlights": [
+                "Integrated Braintree SDK for improved payment process.",
+                "Enhanced navigation and geolocation features."
+            ]
+        },
+        {
+            "company": "Treggo Arg",
+            "position": "iOS Developer",
+            "startDate": "2020-07",
+            "endDate": "2020-11",
+            "summary": "Worked part-time adding SDKs such as MercadoPago and Google Maps SDK.",
+            "highlights": [
+                "Integrated MercadoPago SDK for payments.",
+                "Added Google Maps SDK for location-based features."
             ]
         }
     ],
     "education": [
         {
-            "institution": "University",
-            "url": "https://institution.com/",
-            "area": "Software Development",
-            "studyType": "Bachelor",
-            "startDate": "2011-01-01",
-            "endDate": "2013-01-01",
-            "score": "4.0",
-            "courses": [
-                "DB1101 - Basic SQL"
-            ]
-        }
-    ],
-    "awards": [
+            "institution": "Digital House",
+            "area": "iOS Development",
+            "startDate": "2018-08",
+            "endDate": "2018-12",
+            "studyType": "Course",
+            "location": "Buenos Aires, Argentina"
+        },
         {
-            "title": "Award",
-            "date": "2014-11-01",
-            "awarder": "Company",
-            "summary": "There is no spoon."
-        }
-    ],
-    "certificates": [
+            "institution": "CoderHouse",
+            "area": "Python Development",
+            "startDate": "2021-08",
+            "endDate": "2021-12",
+            "studyType": "Course",
+            "location": "Buenos Aires, Argentina"
+        },
         {
-            "name": "Certificate",
-            "date": "2021-11-07",
-            "issuer": "Company",
-            "url": "https://certificate.com"
-        }
-    ],
-    "publications": [
+            "institution": "CoderHouse",
+            "area": "Product Management",
+            "startDate": "2023-12",
+            "studyType": "Course (ongoing)",
+            "location": "Buenos Aires, Argentina"
+        },
         {
-            "name": "Publication",
-            "publisher": "Company",
-            "releaseDate": "2014-10-01",
-            "url": "https://publication.com",
-            "summary": "Description…"
+            "institution": "EET N\u00ba 5 - Lan\u00fas",
+            "area": "Technique and Repair Computer",
+            "endDate": "2008",
+            "studyType": "Secondary School"
         }
     ],
     "skills": [
         {
+            "name": "Swift",
+            "level": "Advanced"
+        },
+        {
             "name": "SwiftUI",
-            "level": "Advanced",
-            "keywords": [
-                "Swift",
-                "CoreData",
-                "SwiftData",
-                "MVVM"
-            ]
-        }
-    ],
-    "languages": [
+            "level": "Advanced"
+        },
         {
-            "language": "English",
-            "fluency": "Native speaker"
-        }
-    ],
-    "interests": [
+            "name": "Objective-C",
+            "level": "Intermediate"
+        },
         {
-            "name": "Wildlife",
-            "keywords": [
-                "Ferrets",
-                "Unicorns"
-            ]
-        }
-    ],
-    "references": [
+            "name": "SOLID Principles",
+            "level": "Advanced"
+        },
         {
-            "name": "Jane Doe",
-            "reference": "Reference…"
-        }
-    ],
-    "projects": [
+            "name": "Clean Architecture",
+            "level": "Advanced"
+        },
         {
-            "name": "Project",
-            "startDate": "2019-01-01",
-            "endDate": "2021-01-01",
-            "description": "Description...",
-            "highlights": [
-                "Won award at AIHacks 2016"
-            ],
-            "url": "https://project.com/"
+            "name": "MVC/MVP/MVVM",
+            "level": "Advanced"
+        },
+        {
+            "name": "Multithreading",
+            "level": "Intermediate"
+        },
+        {
+            "name": "Code Review",
+            "level": "Advanced"
+        },
+        {
+            "name": "CI/CD Tools",
+            "level": "Intermediate"
         }
     ]
 }
