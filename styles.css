@@ -1,0 +1,358 @@
+/* Estilo tipo LaTeX / paper */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  background: #fdfdfd;
+  color: #000000;
+  line-height: 1.5;
+  padding: 24px 12px;
+  display: flex;
+  gap: 24px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 24px;
+  height: fit-content;
+  min-width: 120px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-button {
+  padding: 12px 20px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  cursor: pointer;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 0.95rem;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.nav-button:hover {
+  background: #f5f5f5;
+}
+
+.nav-button.active {
+  background: #000000;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+.page {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 36px 40px;
+  border: 1px solid #cccccc;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #000000;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.contact {
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
+
+.contact span {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.contact a {
+  color: #0000aa;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+main {
+  margin-top: 12px;
+  font-size: 0.96rem;
+}
+
+section {
+  margin-bottom: 18px;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  margin-top: 6px;
+}
+
+.section-divider {
+  border-top: 0.8px solid #000000;
+  margin-bottom: 6px;
+  margin-top: 2px;
+}
+
+p {
+  text-align: justify;
+  text-indent: 1.5em;
+  margin-bottom: 4px;
+}
+
+/* Skills en bloques simples */
+.skills-grid {
+  display: block;
+}
+
+.skill-group {
+  margin-bottom: 4px;
+}
+
+.skill-group-title {
+  font-weight: bold;
+}
+
+.skill-group-body {
+  margin-left: 1.5em;
+}
+
+/* Jobs y educación */
+.job {
+  margin-bottom: 10px;
+}
+
+.job-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.job-main {
+  font-weight: bold;
+}
+
+@media (min-width: 640px) {
+  .job-header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.job-title {
+  font-weight: bold;
+}
+
+.job-company {
+  font-weight: normal;
+}
+
+.job-meta {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+ul {
+  margin-top: 2px;
+  margin-left: 2em;
+}
+
+li {
+  margin-bottom: 2px;
+  text-align: left;
+}
+
+.edu-item {
+  margin-bottom: 6px;
+}
+
+.edu-title {
+  font-weight: bold;
+}
+
+.edu-meta {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-left: 1.5em;
+}
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .nav-button {
+    flex: 1;
+  }
+}
+
+/* Estilos para impresión A4 */
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm 12mm;
+  }
+
+  body {
+    padding: 0;
+    background: white;
+    font-size: 10pt;
+    display: block;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .page {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  header {
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+  }
+
+  h1 {
+    font-size: 16pt;
+    margin-bottom: 2px;
+  }
+
+  .subtitle {
+    font-size: 10pt;
+  }
+
+  .contact {
+    margin-top: 4px;
+    font-size: 8.5pt;
+    line-height: 1.3;
+  }
+
+  main {
+    margin-top: 6px;
+    font-size: 9pt;
+  }
+
+  section {
+    margin-bottom: 8px;
+    page-break-inside: avoid;
+  }
+
+  h2 {
+    font-size: 10pt;
+    margin-bottom: 2px;
+    margin-top: 4px;
+  }
+
+  .section-divider {
+    margin-bottom: 4px;
+    margin-top: 1px;
+  }
+
+  p {
+    margin-bottom: 3px;
+    text-indent: 1em;
+    font-size: 9pt;
+    line-height: 1.4;
+  }
+
+  .job {
+    margin-bottom: 6px;
+  }
+
+  .job-meta {
+    font-size: 8pt;
+  }
+
+  ul {
+    margin-top: 1px;
+    margin-left: 1.5em;
+    margin-bottom: 4px;
+  }
+
+  li {
+    margin-bottom: 1px;
+    font-size: 9pt;
+    line-height: 1.35;
+  }
+
+  .skill-group {
+    margin-bottom: 2px;
+    font-size: 9pt;
+  }
+
+  .skill-group-body {
+    margin-left: 1em;
+  }
+
+  .edu-item {
+    margin-bottom: 4px;
+  }
+
+  .edu-title {
+    font-size: 9pt;
+  }
+
+  .edu-meta {
+    font-size: 8pt;
+    margin-left: 1em;
+  }
+
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
+
+  a[href^="http"]:after {
+    content: "";
+  }
+}
+
