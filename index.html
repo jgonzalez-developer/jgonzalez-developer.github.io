@@ -7,9 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Resume of Jonatan Gonzalez – iOS Developer based in Buenos Aires, Argentina." />
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
+  <button class="download-pdf-btn" onclick="downloadPDF()">Descargar PDF</button>
   <div class="page">
     <header>
       <h1>JONATAN GONZALEZ</h1>
@@ -54,7 +56,7 @@
         <div class="skills-grid">
           <div class="skill-group">
             <span class="skill-group-title">Languages &amp; Frameworks:</span>
-            <span class="skill-group-body">Swift, SwiftUI, Combine,Objective-C, Dart (Flutter)</span>
+            <span class="skill-group-body">Swift, SwiftUI, Combine, Objective-C, Dart (Flutter)</span>
           </div>
           <div class="skill-group">
             <span class="skill-group-title">Architectures &amp; Patterns:</span>
@@ -228,6 +230,401 @@
       </section>
     </main>
   </div>
+  <script>
+    function downloadPDF() {
+      const element = document.querySelector('.page');
+      const originalStyles = {};
+
+      // Guardar estilos originales del contenedor
+      originalStyles.padding = element.style.padding || getComputedStyle(element).padding;
+      originalStyles.fontSize = element.style.fontSize || getComputedStyle(element).fontSize;
+      originalStyles.lineHeight = element.style.lineHeight || getComputedStyle(element).lineHeight;
+
+      // Aplicar estilos compactos optimizados para A4 (mismos que @media print)
+      element.style.padding = '8mm 10mm';
+      element.style.fontSize = '9pt';
+      element.style.lineHeight = '1.25';
+
+      // Reducir tamaños de fuente optimizados
+      const h1 = element.querySelector('h1');
+      if (h1) {
+        originalStyles.h1FontSize = h1.style.fontSize || getComputedStyle(h1).fontSize;
+        originalStyles.h1MarginBottom = h1.style.marginBottom || getComputedStyle(h1).marginBottom;
+        originalStyles.h1LineHeight = h1.style.lineHeight || getComputedStyle(h1).lineHeight;
+        h1.style.fontSize = '14pt';
+        h1.style.marginBottom = '1px';
+        h1.style.lineHeight = '1.2';
+      }
+
+      const subtitle = element.querySelector('.subtitle');
+      if (subtitle) {
+        originalStyles.subtitleFontSize = subtitle.style.fontSize || getComputedStyle(subtitle).fontSize;
+        originalStyles.subtitleMarginBottom = subtitle.style.marginBottom || getComputedStyle(subtitle).marginBottom;
+        subtitle.style.fontSize = '9pt';
+        subtitle.style.marginBottom = '1px';
+      }
+
+      const header = element.querySelector('header');
+      if (header) {
+        originalStyles.headerMarginBottom = header.style.marginBottom || getComputedStyle(header).marginBottom;
+        originalStyles.headerPaddingBottom = header.style.paddingBottom || getComputedStyle(header).paddingBottom;
+        header.style.marginBottom = '5px';
+        header.style.paddingBottom = '4px';
+      }
+
+      const contact = element.querySelector('.contact');
+      if (contact) {
+        originalStyles.contactFontSize = contact.style.fontSize || getComputedStyle(contact).fontSize;
+        originalStyles.contactMarginTop = contact.style.marginTop || getComputedStyle(contact).marginTop;
+        originalStyles.contactLineHeight = contact.style.lineHeight || getComputedStyle(contact).lineHeight;
+        contact.style.fontSize = '7.5pt';
+        contact.style.marginTop = '2px';
+        contact.style.lineHeight = '1.25';
+
+        const contactSpans = contact.querySelectorAll('span');
+        contactSpans.forEach(span => {
+          originalStyles[`contactSpan-${contactSpans.length}`] = span.style.margin || getComputedStyle(span).margin;
+          span.style.margin = '0 3px';
+        });
+      }
+
+      const main = element.querySelector('main');
+      if (main) {
+        originalStyles.mainMarginTop = main.style.marginTop || getComputedStyle(main).marginTop;
+        originalStyles.mainFontSize = main.style.fontSize || getComputedStyle(main).fontSize;
+        main.style.marginTop = '4px';
+        main.style.fontSize = '8.5pt';
+      }
+
+      const sections = element.querySelectorAll('section');
+      sections.forEach((section, index) => {
+        originalStyles[`section-${index}`] = {
+          marginBottom: section.style.marginBottom || getComputedStyle(section).marginBottom
+        };
+        section.style.marginBottom = '6px';
+      });
+
+      const h2Elements = element.querySelectorAll('h2');
+      h2Elements.forEach((h2, index) => {
+        originalStyles[`h2-${index}`] = {
+          fontSize: h2.style.fontSize || getComputedStyle(h2).fontSize,
+          marginTop: h2.style.marginTop || getComputedStyle(h2).marginTop,
+          marginBottom: h2.style.marginBottom || getComputedStyle(h2).marginBottom,
+          lineHeight: h2.style.lineHeight || getComputedStyle(h2).lineHeight
+        };
+        h2.style.fontSize = '9pt';
+        h2.style.marginTop = '3px';
+        h2.style.marginBottom = '1px';
+        h2.style.lineHeight = '1.2';
+      });
+
+      const dividers = element.querySelectorAll('.section-divider');
+      dividers.forEach((divider, index) => {
+        originalStyles[`divider-${index}`] = {
+          marginTop: divider.style.marginTop || getComputedStyle(divider).marginTop,
+          marginBottom: divider.style.marginBottom || getComputedStyle(divider).marginBottom,
+          borderTopWidth: divider.style.borderTopWidth || getComputedStyle(divider).borderTopWidth
+        };
+        divider.style.marginTop = '1px';
+        divider.style.marginBottom = '3px';
+        divider.style.borderTopWidth = '0.5px';
+      });
+
+      const paragraphs = element.querySelectorAll('p');
+      paragraphs.forEach((p, index) => {
+        originalStyles[`p-${index}`] = {
+          fontSize: p.style.fontSize || getComputedStyle(p).fontSize,
+          lineHeight: p.style.lineHeight || getComputedStyle(p).lineHeight,
+          marginBottom: p.style.marginBottom || getComputedStyle(p).marginBottom,
+          textIndent: p.style.textIndent || getComputedStyle(p).textIndent
+        };
+        p.style.fontSize = '8.5pt';
+        p.style.lineHeight = '1.3';
+        p.style.marginBottom = '2px';
+        p.style.textIndent = '1em';
+      });
+
+      const jobs = element.querySelectorAll('.job');
+      jobs.forEach((job, index) => {
+        originalStyles[`job-${index}`] = {
+          marginBottom: job.style.marginBottom || getComputedStyle(job).marginBottom
+        };
+        job.style.marginBottom = '4px';
+      });
+
+      const jobHeaders = element.querySelectorAll('.job-header');
+      jobHeaders.forEach((header, index) => {
+        originalStyles[`jobHeader-${index}`] = {
+          marginBottom: header.style.marginBottom || getComputedStyle(header).marginBottom
+        };
+        header.style.marginBottom = '1px';
+      });
+
+      const jobMains = element.querySelectorAll('.job-main');
+      jobMains.forEach((main, index) => {
+        originalStyles[`jobMain-${index}`] = {
+          fontSize: main.style.fontSize || getComputedStyle(main).fontSize
+        };
+        main.style.fontSize = '8.5pt';
+      });
+
+      const jobMeta = element.querySelectorAll('.job-meta');
+      jobMeta.forEach((meta, index) => {
+        originalStyles[`jobMeta-${index}`] = {
+          fontSize: meta.style.fontSize || getComputedStyle(meta).fontSize,
+          lineHeight: meta.style.lineHeight || getComputedStyle(meta).lineHeight
+        };
+        meta.style.fontSize = '7.5pt';
+        meta.style.lineHeight = '1.2';
+      });
+
+      const lists = element.querySelectorAll('ul');
+      lists.forEach((ul, index) => {
+        originalStyles[`ul-${index}`] = {
+          marginTop: ul.style.marginTop || getComputedStyle(ul).marginTop,
+          marginLeft: ul.style.marginLeft || getComputedStyle(ul).marginLeft,
+          marginBottom: ul.style.marginBottom || getComputedStyle(ul).marginBottom,
+          paddingLeft: ul.style.paddingLeft || getComputedStyle(ul).paddingLeft
+        };
+        ul.style.marginTop = '1px';
+        ul.style.marginLeft = '1.3em';
+        ul.style.marginBottom = '2px';
+        ul.style.paddingLeft = '0';
+      });
+
+      const listItems = element.querySelectorAll('li');
+      listItems.forEach((li, index) => {
+        originalStyles[`li-${index}`] = {
+          fontSize: li.style.fontSize || getComputedStyle(li).fontSize,
+          lineHeight: li.style.lineHeight || getComputedStyle(li).lineHeight,
+          marginBottom: li.style.marginBottom || getComputedStyle(li).marginBottom
+        };
+        li.style.fontSize = '8.5pt';
+        li.style.lineHeight = '1.3';
+        li.style.marginBottom = '0.5px';
+      });
+
+      const skillGroups = element.querySelectorAll('.skill-group');
+      skillGroups.forEach((group, index) => {
+        originalStyles[`skillGroup-${index}`] = {
+          marginBottom: group.style.marginBottom || getComputedStyle(group).marginBottom,
+          fontSize: group.style.fontSize || getComputedStyle(group).fontSize,
+          lineHeight: group.style.lineHeight || getComputedStyle(group).lineHeight
+        };
+        group.style.marginBottom = '1.5px';
+        group.style.fontSize = '8.5pt';
+        group.style.lineHeight = '1.3';
+      });
+
+      const eduItems = element.querySelectorAll('.edu-item');
+      eduItems.forEach((item, index) => {
+        originalStyles[`eduItem-${index}`] = {
+          marginBottom: item.style.marginBottom || getComputedStyle(item).marginBottom
+        };
+        item.style.marginBottom = '3px';
+      });
+
+      const eduTitles = element.querySelectorAll('.edu-title');
+      eduTitles.forEach((title, index) => {
+        originalStyles[`eduTitle-${index}`] = {
+          fontSize: title.style.fontSize || getComputedStyle(title).fontSize
+        };
+        title.style.fontSize = '8.5pt';
+      });
+
+      const eduMeta = element.querySelectorAll('.edu-meta');
+      eduMeta.forEach((meta, index) => {
+        originalStyles[`eduMeta-${index}`] = {
+          fontSize: meta.style.fontSize || getComputedStyle(meta).fontSize,
+          marginLeft: meta.style.marginLeft || getComputedStyle(meta).marginLeft,
+          lineHeight: meta.style.lineHeight || getComputedStyle(meta).lineHeight
+        };
+        meta.style.fontSize = '7.5pt';
+        meta.style.marginLeft = '0.8em';
+        meta.style.lineHeight = '1.2';
+      });
+
+      // Configuración optimizada para PDF A4 con alta calidad
+      const opt = {
+        margin: [10, 10, 10, 10],
+        filename: 'Jonatan_Gonzalez_CV.pdf',
+        image: { type: 'png', quality: 1.0 },
+        html2canvas: {
+          scale: 3,
+          useCORS: true,
+          letterRendering: true,
+          logging: false,
+          dpi: 300,
+          windowWidth: element.scrollWidth,
+          windowHeight: element.scrollHeight,
+          allowTaint: true,
+          backgroundColor: '#ffffff',
+          removeContainer: false
+        },
+        jsPDF: {
+          unit: 'mm',
+          format: 'a4',
+          orientation: 'portrait',
+          compress: false
+        },
+        pagebreak: {
+          mode: ['avoid-all', 'css', 'legacy']
+        }
+      };
+
+      html2pdf().set(opt).from(element).save().then(() => {
+        // Restaurar todos los estilos originales
+        element.style.padding = originalStyles.padding || '';
+        element.style.fontSize = originalStyles.fontSize || '';
+        element.style.lineHeight = originalStyles.lineHeight || '';
+
+        if (h1) {
+          h1.style.fontSize = originalStyles.h1FontSize || '';
+          h1.style.marginBottom = originalStyles.h1MarginBottom || '';
+          h1.style.lineHeight = originalStyles.h1LineHeight || '';
+        }
+        if (subtitle) {
+          subtitle.style.fontSize = originalStyles.subtitleFontSize || '';
+          subtitle.style.marginBottom = originalStyles.subtitleMarginBottom || '';
+        }
+        if (header) {
+          header.style.marginBottom = originalStyles.headerMarginBottom || '';
+          header.style.paddingBottom = originalStyles.headerPaddingBottom || '';
+        }
+        if (contact) {
+          contact.style.fontSize = originalStyles.contactFontSize || '';
+          contact.style.marginTop = originalStyles.contactMarginTop || '';
+          contact.style.lineHeight = originalStyles.contactLineHeight || '';
+
+          const contactSpans = contact.querySelectorAll('span');
+          contactSpans.forEach((span, idx) => {
+            const key = `contactSpan-${contactSpans.length}`;
+            span.style.margin = originalStyles[key] || '';
+          });
+        }
+        if (main) {
+          main.style.marginTop = originalStyles.mainMarginTop || '';
+          main.style.fontSize = originalStyles.mainFontSize || '';
+        }
+
+        sections.forEach((section, index) => {
+          const key = `section-${index}`;
+          if (originalStyles[key]) {
+            section.style.marginBottom = originalStyles[key].marginBottom || '';
+          }
+        });
+
+        h2Elements.forEach((h2, index) => {
+          const key = `h2-${index}`;
+          if (originalStyles[key]) {
+            h2.style.fontSize = originalStyles[key].fontSize || '';
+            h2.style.marginTop = originalStyles[key].marginTop || '';
+            h2.style.marginBottom = originalStyles[key].marginBottom || '';
+            h2.style.lineHeight = originalStyles[key].lineHeight || '';
+          }
+        });
+
+        dividers.forEach((divider, index) => {
+          const key = `divider-${index}`;
+          if (originalStyles[key]) {
+            divider.style.marginTop = originalStyles[key].marginTop || '';
+            divider.style.marginBottom = originalStyles[key].marginBottom || '';
+            divider.style.borderTopWidth = originalStyles[key].borderTopWidth || '';
+          }
+        });
+
+        paragraphs.forEach((p, index) => {
+          const key = `p-${index}`;
+          if (originalStyles[key]) {
+            p.style.fontSize = originalStyles[key].fontSize || '';
+            p.style.lineHeight = originalStyles[key].lineHeight || '';
+            p.style.marginBottom = originalStyles[key].marginBottom || '';
+            p.style.textIndent = originalStyles[key].textIndent || '';
+          }
+        });
+
+        jobs.forEach((job, index) => {
+          const key = `job-${index}`;
+          if (originalStyles[key]) {
+            job.style.marginBottom = originalStyles[key].marginBottom || '';
+          }
+        });
+
+        jobHeaders.forEach((header, index) => {
+          const key = `jobHeader-${index}`;
+          if (originalStyles[key]) {
+            header.style.marginBottom = originalStyles[key].marginBottom || '';
+          }
+        });
+
+        jobMains.forEach((main, index) => {
+          const key = `jobMain-${index}`;
+          if (originalStyles[key]) {
+            main.style.fontSize = originalStyles[key].fontSize || '';
+          }
+        });
+
+        jobMeta.forEach((meta, index) => {
+          const key = `jobMeta-${index}`;
+          if (originalStyles[key]) {
+            meta.style.fontSize = originalStyles[key].fontSize || '';
+            meta.style.lineHeight = originalStyles[key].lineHeight || '';
+          }
+        });
+
+        lists.forEach((ul, index) => {
+          const key = `ul-${index}`;
+          if (originalStyles[key]) {
+            ul.style.marginTop = originalStyles[key].marginTop || '';
+            ul.style.marginLeft = originalStyles[key].marginLeft || '';
+            ul.style.marginBottom = originalStyles[key].marginBottom || '';
+            ul.style.paddingLeft = originalStyles[key].paddingLeft || '';
+          }
+        });
+
+        listItems.forEach((li, index) => {
+          const key = `li-${index}`;
+          if (originalStyles[key]) {
+            li.style.fontSize = originalStyles[key].fontSize || '';
+            li.style.lineHeight = originalStyles[key].lineHeight || '';
+            li.style.marginBottom = originalStyles[key].marginBottom || '';
+          }
+        });
+
+        skillGroups.forEach((group, index) => {
+          const key = `skillGroup-${index}`;
+          if (originalStyles[key]) {
+            group.style.marginBottom = originalStyles[key].marginBottom || '';
+            group.style.fontSize = originalStyles[key].fontSize || '';
+            group.style.lineHeight = originalStyles[key].lineHeight || '';
+          }
+        });
+
+        eduItems.forEach((item, index) => {
+          const key = `eduItem-${index}`;
+          if (originalStyles[key]) {
+            item.style.marginBottom = originalStyles[key].marginBottom || '';
+          }
+        });
+
+        eduTitles.forEach((title, index) => {
+          const key = `eduTitle-${index}`;
+          if (originalStyles[key]) {
+            title.style.fontSize = originalStyles[key].fontSize || '';
+          }
+        });
+
+        eduMeta.forEach((meta, index) => {
+          const key = `eduMeta-${index}`;
+          if (originalStyles[key]) {
+            meta.style.fontSize = originalStyles[key].fontSize || '';
+            meta.style.marginLeft = originalStyles[key].marginLeft || '';
+            meta.style.lineHeight = originalStyles[key].lineHeight || '';
+          }
+        });
+      });
+    }
+  </script>
 </body>
 
 </html>
