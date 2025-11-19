@@ -141,10 +141,12 @@ p {
 
 .skill-group-title {
   font-weight: bold;
+  display: inline;
+  margin-right: 0.5em;
 }
 
 .skill-group-body {
-  margin-left: 1.5em;
+  display: inline;
 }
 
 /* Jobs y educación */
@@ -329,8 +331,12 @@ li {
     font-size: 9pt;
   }
 
+  .skill-group-title {
+    margin-right: 0.4em;
+  }
+
   .skill-group-body {
-    margin-left: 1em;
+    display: inline;
   }
 
   .edu-item {
